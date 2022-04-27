@@ -3,8 +3,9 @@ import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import MyDrawer from './navigation/MyDrawer';
-import LoginScreen from './screens/login/LoginScreen';
+import AppContext, {AppProvider} from './src/context/AppContext';
+import MyDrawer from './src/navigation/MyDrawer';
+import LoginScreen from './src/screens/login/LoginScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,4 +24,10 @@ const App = () => {
   );
 };
 
-export default App;
+export default () => {
+  return (
+    <AppProvider>
+      <App />
+    </AppProvider>
+  );
+};
