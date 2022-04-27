@@ -26,57 +26,6 @@ function CustomDrawerContent(props) {
   const navigation = useNavigation();
   return (
     <DrawerContentScrollView {...props} style={{flex: 1}}>
-      {/* <View
-        style={{
-          flex: 1,
-          backgroundColor: COLORS.lightGray3,
-          display: 'flex',
-          flexDirection: 'row',
-        }}>
-        <View
-          style={{
-            width: '30%',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <Image
-            style={{width: 70, height: 70, tintColor: COLORS.darkgray}}
-            source={Icon.userProfile}
-          />
-        </View>
-        <View
-          style={{
-            width: '0.5%',
-            height: 80,
-            backgroundColor: COLORS.primary,
-            alignSelf: 'center',
-          }}
-        />
-        <View
-          style={{
-            width: '69.5%',
-            display: 'flex',
-            flexDirection: 'column',
-          }}>
-          <View style={styles.profileContainer}>
-            <Text style={styles.profileText}>Arkar Phone Myat</Text>
-          </View>
-          <View style={styles.profileContainer}>
-            <Text style={styles.profileText}>Branch Manager</Text>
-          </View>
-        </View>
-      </View>
-      <View style={{flex: 1, backgroundColor: 'green'}}>
-        <TouchableOpacity style={styles.button}>
-          <View style={styles.iconContainer}>
-            <Image style={styles.icon} />
-          </View>
-          <View style={styles.textContainer}>
-            <Text style={styles.text}> Home </Text>
-          </View>
-        </TouchableOpacity>
-      </View> */}
       <View
         style={{
           flex: 1,

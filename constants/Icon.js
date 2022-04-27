@@ -14,6 +14,9 @@ export const staffDirectory = require('../assets/Icon/StaffDirectory.png');
 export const helpDesk = require('../assets/Icon/Helpdesk.png');
 export const home = require('../assets/Icon/Home.png');
 export const logout = require('../assets/Icon/Logout.png');
+export const next = require('../assets/Icon/Next.png');
+export const username = require('../assets/Icon/Username.png');
+export const secure = require('../assets/Icon/Secure.png');
 
 export default {
   menu,
@@ -32,4 +35,7 @@ export default {
   helpDesk,
   home,
   logout,
+  next,
+  username,
+  secure,
 };

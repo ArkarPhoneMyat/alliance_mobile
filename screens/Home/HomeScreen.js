@@ -5,8 +5,9 @@ import {
   Image,
   TouchableOpacity,
   Dimensions,
+  BackHandler,
 } from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import CustomHeader from '../../components/CustomHeader';
 import {COLORS, Icon} from '../../constants';
 import {useNavigation} from '@react-navigation/native';
@@ -15,6 +16,7 @@ const {width, height} = Dimensions.get('screen');
 
 const HomeScreen = () => {
   const navigation = useNavigation();
+
   return (
     <View style={{flex: 1, backgroundColor: COLORS.white}}>
       <CustomHeader isMain={true} title="Alliance HRM" />
