@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   Image,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import React from 'react';
 import CustomHeader from '../../components/CustomHeader';
@@ -17,7 +18,7 @@ const {width, height} = Dimensions.get('screen');
 
 const UserProfileScreen = () => {
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <View style={{flex: 1}}>
       <CustomHeader title="Profile" />
       <View style={styles.container}>
         <View style={styles.upContainer} />
@@ -33,7 +34,7 @@ const UserProfileScreen = () => {
                 width: width / 1.1,
                 height: height / 3.5,
                 backgroundColor: COLORS.secondaryBlue,
-                zIndex: 1,
+                zIndex: 3,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -98,7 +99,7 @@ const UserProfileScreen = () => {
             <View
               style={{
                 width: width - 15,
-                height: 320,
+                height: height / 2.3,
                 marginTop: '5%',
               }}>
               <View style={styles.departmentRoot}>
@@ -256,7 +257,7 @@ const UserProfileScreen = () => {
           </View>
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -272,11 +273,13 @@ const styles = StyleSheet.create({
     width: width,
     height: '25%',
     backgroundColor: COLORS.primary,
+    zIndex: 1,
   },
   botContainer: {
     width: width,
     height: '75%',
     backgroundColor: COLORS.white,
+    zIndex: 2,
   },
   botContainerMain: {
     width: '100%',
@@ -288,7 +291,7 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     marginBottom: -50,
-    zIndex: 2,
+    zIndex: 4,
   },
   departmentRoot: {
     width: '100%',

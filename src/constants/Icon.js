@@ -18,6 +18,7 @@ export const next = require('../assets/Icon/Next.png');
 export const username = require('../assets/Icon/Username.png');
 export const secure = require('../assets/Icon/Secure.png');
 export const document = require('../assets/Icon/Document.png');
+export const calendar = require('../assets/Icon/Calendar.png');
 
 export default {
   menu,
@@ -40,4 +41,5 @@ export default {
   username,
   secure,
   document,
+  calendar,
 };

@@ -4,7 +4,7 @@ export const getApi = async (url, setData) => {
   const loginData = await AsyncStorage.getItem('@SSM_LoginData');
   const requestOptions = {
     method: 'GET',
-    headers: authHeader(loginData),
+    // headers: authHeader(loginData),
   };
   fetch(`${baseUrl}${url}`, requestOptions)
     .then(handleResponse)

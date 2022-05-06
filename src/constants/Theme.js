@@ -7,12 +7,14 @@ export const COLORS = {
   secondaryBlue: '#00cccc',
 
   // colors
+  buttonRed: '#FF0000',
   black: '#1E1F20',
   white: '#FFFFFF',
   lightGray1: '#EFEFF1',
   lightGray2: '#BBBABA',
   transparent: 'transparent',
   darkgray: '#7B7B7B',
+  viewBtnColor: '#1AB394',
 };
 
 export const SIZES = {
