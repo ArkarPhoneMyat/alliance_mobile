@@ -99,7 +99,7 @@ const UserProfileScreen = () => {
             <View
               style={{
                 width: width - 15,
-                height: height / 2.3,
+                height: 320,
                 marginTop: '5%',
               }}>
               <View style={styles.departmentRoot}>
