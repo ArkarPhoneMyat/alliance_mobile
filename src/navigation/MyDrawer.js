@@ -19,6 +19,7 @@ import IncentiveScreen from './../screens/incentive/IncentiveScreen';
 import ComplainBoxScreen from './../screens/complainBox/ComplainBoxScreen';
 import PasswordScreen from './../screens/password/PasswordScreen';
 import StaffDirectoryScreen from './../screens/staffDirectory/StaffDirectoryScreen';
+import StaffLoanScreen from './../screens/staffLoan/StaffLoanScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -73,7 +74,7 @@ function CustomDrawerContent(props) {
           height: SIZES.height - 100,
         }}>
         <TouchableOpacity
-          style={[styles.button, {marginTop: 10}]}
+          style={[styles.button, {marginTop: 5}]}
           onPress={() => {
             navigation.dispatch(DrawerActions.closeDrawer());
             navigation.navigate('home');
@@ -263,10 +264,10 @@ function CustomDrawerContent(props) {
           style={styles.button}
           onPress={() => {
             navigation.dispatch(DrawerActions.closeDrawer());
-            navigation.navigate('password');
+            navigation.navigate('staffLoan');
           }}>
-          <Image source={Icon.password} style={styles.buttonImage} />
-          <Text style={styles.buttonText}>Password Change</Text>
+          <Image source={Icon.staffLoan} style={styles.buttonImage} />
+          <Text style={styles.buttonText}>Staff Loan</Text>
         </TouchableOpacity>
         <View
           style={{
@@ -291,9 +292,26 @@ function CustomDrawerContent(props) {
             height: 0.5,
             backgroundColor: COLORS.lightGray3,
             alignSelf: 'center',
-            marginBottom: 20,
           }}
         />
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            navigation.dispatch(DrawerActions.closeDrawer());
+            navigation.navigate('password');
+          }}>
+          <Image source={Icon.password} style={styles.buttonImage} />
+          <Text style={styles.buttonText}>Password Change</Text>
+        </TouchableOpacity>
+        <View
+          style={{
+            width: '90%',
+            height: 0.5,
+            backgroundColor: COLORS.lightGray3,
+            alignSelf: 'center',
+          }}
+        />
+
         <View
           style={{
             width: '100%',
@@ -334,6 +352,7 @@ const MyDrawer = () => {
       <Drawer.Screen name="complainBox" component={ComplainBoxScreen} />
       <Drawer.Screen name="password" component={PasswordScreen} />
       <Drawer.Screen name="staffDirectory" component={StaffDirectoryScreen} />
+      <Drawer.Screen name="staffLoan" component={StaffLoanScreen} />
     </Drawer.Navigator>
   );
 };

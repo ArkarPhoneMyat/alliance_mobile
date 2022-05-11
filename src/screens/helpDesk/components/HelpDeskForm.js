@@ -44,6 +44,7 @@ const HelpDeskForm = ({route}) => {
     severityId: 0,
     severity: '',
   });
+  console.log('newHelpDesk>>>>>', newHelpDesk);
 
   const [ticketMain, setTicketMain] = useState([]);
   const [ticketMainAll, setTicketMainAll] = useState([]);
@@ -126,6 +127,7 @@ const HelpDeskForm = ({route}) => {
   const onLocationBranchChange = (text, value) => {
     const temp = {...newHelpDesk};
     temp[text] = value;
+
     setNewHelpDesk(temp);
     HelpDeskController.getAssignPersonByBranchAndDepartment(
       newHelpDesk.requestedDep,
@@ -139,7 +141,7 @@ const HelpDeskForm = ({route}) => {
   const onClickAttachment = useCallback(async () => {
     try {
       const res = await DocumentPicker.pick({
-        type: [DocumentPicker.types.allFiles],
+        type: [DocumentPicker.types.images],
         allowMultiSelection: true,
       });
 
@@ -196,6 +198,7 @@ const HelpDeskForm = ({route}) => {
       comment: newHelpDesk.comment,
       severityId: newHelpDesk.severityId,
     };
+    console.log('obj', obj);
     // for (const f of fileResponse) {
     //   file.push({
     //     name: f.name,
@@ -206,7 +209,7 @@ const HelpDeskForm = ({route}) => {
 
     try {
       const data = new FormData();
-
+      data.append('info', JSON.stringify(obj));
       for (const f of fileResponse) {
         data.append('uploadfile', {
           name: f.name,
@@ -215,27 +218,26 @@ const HelpDeskForm = ({route}) => {
         });
       }
 
-      fileResponse.map(f => {
-        var haha = {};
-        haha['name'] = f.name;
-        haha['type'] = f.type;
-        haha['uri'] =
-          Platform.OS === 'ios' ? f.uri.replace('file://', '') : f.uri;
-        file.push(haha);
-      });
+      // fileResponse.map(f => {
+      //   var haha = {};
+      //   haha['name'] = f.name;
+      //   haha['type'] = f.type;
+      //   haha['uri'] =
+      //     Platform.OS === 'ios' ? f.uri.replace('file://', '') : f.uri;
+      //   file.push(haha);
+      // });
 
-      HelpDeskController.addHelpDesk({info: obj, data}, data => {
-        console.log(data);
-      });
+      // HelpDeskController.addHelpDesk(data, data => {
+      //   console.log(data);
+      // });
 
       // fetch(baseUrl + 'helpDesk/addHelpDesk', {
       //   method: 'POST',
-      //   body: JSON.stringify(obj),
+      //   body: data,
       //   headers: {
       //     // 'Content-Type': 'multipart/form-data',
-      //     Accept: 'application/json',
       //   },
-      // })
+      // });
       //   .then(data => console.log('add Successfully', data))
       //   .catch(err => console.log('error: ', err));
     } catch (e) {
@@ -442,7 +444,7 @@ const HelpDeskForm = ({route}) => {
               value={newHelpDesk.locationBranch}
               onValueChange={v => onLocationBranchChange('locationBranch', v)}
               title={'Location / Branch'}
-              data={branch}
+              data={branch && branch}
               star={true}
             />
             <CustomDropDown
@@ -494,15 +496,16 @@ const HelpDeskForm = ({route}) => {
                   height: '100%',
                   alignItems: 'center',
                 }}>
-                {fileResponse.map((file, index) => (
-                  <Text
-                    key={index.toString()}
-                    style={styles.uri}
-                    numberOfLines={1}
-                    ellipsizeMode={'middle'}>
-                    {file?.uri}
-                  </Text>
-                ))}
+                {fileResponse &&
+                  fileResponse.map((file, index) => (
+                    <Text
+                      key={index.toString()}
+                      style={styles.uri}
+                      numberOfLines={1}
+                      ellipsizeMode={'middle'}>
+                      {file?.uri}
+                    </Text>
+                  ))}
               </View>
             </View>
           </ScrollView>

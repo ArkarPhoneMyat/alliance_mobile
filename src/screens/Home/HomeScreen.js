@@ -89,9 +89,9 @@ const HomeScreen = () => {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate('password')}>
-          <Image source={Icon.password} style={styles.icon} />
-          <Text style={styles.text}>Password Change</Text>
+          onPress={() => navigation.navigate('staffLoan')}>
+          <Image source={Icon.staffLoan} style={styles.icon} />
+          <Text style={styles.text}>Staff Loan</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
